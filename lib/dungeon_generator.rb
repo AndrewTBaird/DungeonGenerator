@@ -12,19 +12,22 @@ class DungeonGenerator
     create_tunnel_at_current_location
 
     number_of_tunnels.times do
-      move_random_direction
-      create_tunnel_at_current_location
+      create_tunnel_randomly
     end
   end
 
-  def move_random_direction
+  def create_tunnel_randomly
+    tunnel_length = rand(@dungeon.max_tunnel_length)
     direction = DIRECTIONS[rand(4)]
 
-    until position_inside_walls?([direction[0] + @current_position[0], direction[1] + @current_position[1]])
+    until position_inside_walls?([direction[0] * tunnel_length + @current_position[0], direction[1] * tunnel_length + @current_position[1]])
       direction = DIRECTIONS[rand(4)]
     end
 
-    @current_position = [@current_position[0] + direction[0], @current_position[1] + direction[1]]
+    tunnel_length.times do
+      @current_position = [@current_position[0] + direction[0], @current_position[1] + direction[1]]
+      create_tunnel_at_current_location
+    end
   end
 
   def create_tunnel_at_current_location

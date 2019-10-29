@@ -24,17 +24,36 @@ describe DungeonGenerator do
   end
 
   describe "#move_random_direction" do
-    let(:dungeon) { Dungeon.new(2, 2) }
-    let(:dungeon_generator) { DungeonGenerator.new(dungeon, [1, 1])}
 
-    it "does not move outside the walls of the dungeon" do
-      20.times do
-        dungeon_generator.move_random_direction
-        expect(dungeon_generator.current_position[0]).to be < 2
-        expect(dungeon_generator.current_position[0]).to be > -1
+    context "when max tunnel length is 1" do
+      let(:dungeon) { Dungeon.new(2, 2, 1) }
+      let(:dungeon_generator) { DungeonGenerator.new(dungeon, [1, 1])}
 
-        expect(dungeon_generator.current_position[1]).to be < 2
-        expect(dungeon_generator.current_position[1]).to be > -1
+      it "does not move outside the walls of the dungeon" do
+        20.times do
+          dungeon_generator.create_tunnel_randomly
+          expect(dungeon_generator.current_position[0]).to be < 2
+          expect(dungeon_generator.current_position[0]).to be > -1
+
+          expect(dungeon_generator.current_position[1]).to be < 2
+          expect(dungeon_generator.current_position[1]).to be > -1
+        end
+      end
+    end
+
+    context "when max tunnel length is > 1" do
+      let(:dungeon) { Dungeon.new(20, 20, 5) }
+      let(:dungeon_generator) { DungeonGenerator.new(dungeon, [9, 9])}
+
+      it "does not move outside the walls of the dungeon" do
+        20.times do
+          dungeon_generator.create_tunnel_randomly
+          expect(dungeon_generator.current_position[0]).to be < 20
+          expect(dungeon_generator.current_position[0]).to be > -1
+
+          expect(dungeon_generator.current_position[1]).to be < 20
+          expect(dungeon_generator.current_position[1]).to be > -1
+        end
       end
     end
   end
