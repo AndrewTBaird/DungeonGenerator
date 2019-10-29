@@ -2,13 +2,15 @@ class Dungeon
   def initialize(rows, cols)
     @rows = rows
     @columns = cols
-    @wall_arr = Array.new(rows){Array.new(cols, 0)}
+    @dungeon_array = Array.new(rows){Array.new(cols, 0)}
+    @max_tunnel_length = 5
+    @max_turns = 5
   end
 
   def draw
     drawing = ""
 
-    @wall_arr.each do |row|
+    @dungeon_array.each do |row|
       drawing += "\n"
       row.each do |column|
         drawing += column.to_s
@@ -16,6 +18,14 @@ class Dungeon
     end
 
     drawing
+  end
+
+  def generate_dungeon
+    current_row = rand(@rows)
+    current_column = rand(@columns)
+    @dungeon_array[current_row][current_column] = 1
+
+
   end
 
 end
