@@ -1,3 +1,5 @@
+require "dungeon_navigation"
+
 class Dungeon
   def initialize(rows, cols)
     @rows = rows
@@ -25,6 +27,9 @@ class Dungeon
     current_column = rand(@columns)
     @dungeon_array[current_row][current_column] = 1
 
+    # current_row += DungeonNavigation.up[0]
+    # current_column += DungeonNavigation.up[1]
+    # @dungeon_array[current_row][current_column] = 1
 
   end
 
