@@ -1,6 +1,7 @@
 require "spec_helper"
-require "first_class"
+require "hello_world"
 
-describe "first class" do
-  it { expect(FirstClass.hi).to eq("hello world") }
+describe "hellow world" do
+  it { expect(HelloWorld.hi).to eq("hello world") }
+
 end
