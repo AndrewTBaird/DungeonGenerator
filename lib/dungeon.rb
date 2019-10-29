@@ -1,6 +1,8 @@
-require "dungeon_navigation"
-
 class Dungeon
+  attr_reader :rows, :columns
+
+  attr_accessor :dungeon_array
+
   def initialize(rows, cols)
     @rows = rows
     @columns = cols
@@ -21,16 +23,4 @@ class Dungeon
 
     drawing
   end
-
-  def generate_dungeon
-    current_row = rand(@rows)
-    current_column = rand(@columns)
-    @dungeon_array[current_row][current_column] = 1
-
-    # current_row += DungeonNavigation.up[0]
-    # current_column += DungeonNavigation.up[1]
-    # @dungeon_array[current_row][current_column] = 1
-
-  end
-
 end
