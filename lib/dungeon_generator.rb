@@ -31,7 +31,7 @@ class DungeonGenerator
   end
 
   def create_tunnel_at_current_location
-    @dungeon.dungeon_array[@current_position[0]][@current_position[1]] = 1
+    @dungeon.dungeon_array[@current_position[0]][@current_position[1]] = " "
   end
 
 

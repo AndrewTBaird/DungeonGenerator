@@ -14,7 +14,7 @@ describe Dungeon do
 
   describe "#draw_dungeon" do
     let(:dungeon) { Dungeon.new(3, 2, 2, 1) }
-    it { expect(dungeon.draw).to eq("\n00\n00\n00") }
+    it { expect(dungeon.draw).to eq("\nXX\nXX\nXX") }
   end
 end
 

@@ -6,7 +6,7 @@ class Dungeon
   def initialize(rows, cols, max_tunnel_length, number_of_tunnels)
     @rows = rows
     @columns = cols
-    @dungeon_array = Array.new(rows){Array.new(cols, 0)}
+    @dungeon_array = Array.new(rows){Array.new(cols, "X")}
     @max_tunnel_length = max_tunnel_length
     @number_of_tunnels = number_of_tunnels
   end

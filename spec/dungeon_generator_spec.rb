@@ -9,7 +9,7 @@ describe DungeonGenerator do
 
     it "marks the current location as a tunnel" do
       dungeon_generator.create_tunnel_at_current_location
-      expect(dungeon.dungeon_array[2][2]).to eq(1)
+      expect(dungeon.dungeon_array[2][2]).to eq(" ")
     end
   end
 
