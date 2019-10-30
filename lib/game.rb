@@ -1,11 +1,15 @@
 require 'gosu'
-require './hero'
 require 'pry'
+require_relative 'characters/hero'
+require_relative 'dungeon/wall_tile'
+require_relative 'dungeon/dungeon_background'
 
 class Game < Gosu::Window
   def initialize
     super(640, 480)
     self.caption = "Tutorial Game"
+
+    @background = DungeonBackground.new(self.height, self.width)
 
     @hero = Hero.new("Andrew the Great", 99, [0, 0])
     @hero.warp(320, 240)
@@ -28,6 +32,7 @@ class Game < Gosu::Window
   end
 
   def draw
+    @background.draw
     @hero.draw
   end
 
@@ -38,6 +43,7 @@ class Game < Gosu::Window
       super
     end
   end
+
 end
 
 Game.new.show

@@ -1,4 +1,4 @@
-require './dungeon_generator'
+require_relative 'dungeon_generator'
 
 class Dungeon
   attr_reader :rows, :columns, :max_tunnel_length, :number_of_tunnels

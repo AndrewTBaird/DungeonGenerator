@@ -1,4 +1,4 @@
-require './creature'
+require_relative 'creature'
 require 'gosu'
 
 class Hero < Creature
@@ -35,6 +35,6 @@ class Hero < Creature
   end
 
   def draw
-    @image.draw_rot(@x, @y, 1, 0)
+    @image.draw(@x, @y, 2)
   end
 end
